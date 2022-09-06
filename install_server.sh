@@ -3,7 +3,7 @@
 # You can set this variable whatever you want in shell session right before running this script by issuing:
 # export JSON_PATH='/usr/local/etc/hysteria'
 JSON_PATH=${JSON_PATH:-/etc/hysteria}
-
+domain=$(cat /etc/xray/domain)
 curl() {
   $(type -P curl) -L -q --retry 5 --retry-delay 10 --retry-max-time 60 "$@"
 }
@@ -239,11 +239,11 @@ install_hysteria() {
     "listen": ":36712",
     "acme": {
         "domains": [
-            "your.domain.com"
+            "$domain"
         ],
         "email": "hacker@gmail.com"
     },
-    "obfs": "fuck me till the daylight",
+    "obfs": "gandring family edition",
     "up_mbps": 100,
     "down_mbps": 100
 }
